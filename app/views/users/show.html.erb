@@ -9,7 +9,7 @@
 <% end %>
 
 <p>Your Current High Score is:</p>
-<p>_____________</p> <!-- need to grab users last highest score -->
+<p><%= @top_score.first.points %></p> <!-- grabs users last highest score -->
 
 <p>You are ranked:</p>
 <p>_______</p> <!-- need to grab users rank in comparison to other users -->
@@ -35,11 +35,10 @@
 </p> -->
 
 
-<h2>Top Scores</h2> <!-- needs to grab top scores from other users -->
-<p>1._____________</p>
-<p>2._____________</p>
-<p>3._____________</p>
-
+<h2>Top Scores</h2> <!-- grabs top scores from other users -->
+<% @high_scores.each_with_index do |score, i| %>
+  <p><%= i + 1 %>. <%= score.points %></p>
+<% end %>
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @top_score = User.find( params[:id] ).scores.limit(1).order( "points DESC" )
+    @high_scores = Score.limit(3).order( "points DESC" )
   end
 
   # GET /users/new
