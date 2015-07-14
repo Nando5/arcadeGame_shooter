@@ -8,37 +8,20 @@
   <%= link_to("Log out", login_path, :method => :delete) %>
 <% end %>
 
+
 <p>Your Current High Score is:</p>
-<p><%= @top_score.first.points %></p> <!-- grabs users last highest score -->
+
+<p><%= @top_score.first.points if @top_score.first %></p> <!-- grabs users last highest score -->
+
 
 <p>You are ranked:</p>
 <p>_______</p> <!-- need to grab users rank in comparison to other users -->
-
-<!-- <p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>User name:</strong>
-  <%= @user.user_name %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @user.user_id %>
-</p>
-
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p> -->
-
 
 <h2>Top Scores</h2> <!-- grabs top scores from other users -->
 <% @high_scores.each_with_index do |score, i| %>
   <p><%= i + 1 %>. <%= score.points %></p>
 <% end %>
+  <!-- <p>0</p> -->
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
