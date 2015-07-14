@@ -28,10 +28,10 @@ u2.scores << s1a << s2a << s3a
 u2.save
 
 
-u2 = User.create(:email => 'pete@gmail.com', :user_name => 'Peter', :password => "qwerty", :password_confirmation => "qwerty")
+u3 = User.create(:email => 'pete@gmail.com', :user_name => 'Peter', :password => "qwerty", :password_confirmation => "qwerty")
 s1b = Score.create(:points => 670)
 s2b = Score.create(:points => 6400)
 s3b = Score.create(:points => 1900)
 
-u2.scores << s1b << s2b << s3b
-u2.save
+u3.scores << s1b << s2b << s3b
+u3.save
