@@ -9,9 +9,12 @@
 <% end %>
 
 <p>Your Current High Score is:</p>
-<p>_____________</p>
+<p>_____________</p> <!-- need to grab users last highest score -->
 
-<p>
+<p>You are ranked:</p>
+<p>_______</p> <!-- need to grab users rank in comparison to other users -->
+
+<!-- <p>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
@@ -29,7 +32,23 @@
 <p>
   <strong>Password digest:</strong>
   <%= @user.password_digest %>
-</p>
+</p> -->
+
+
+<h2>Top Scores</h2> <!-- needs to grab top scores from other users -->
+<p>1._____________</p>
+<p>2._____________</p>
+<p>3._____________</p>
+
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', users_path %> |
+<%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<br><br>
+<button>Play Game</button> <!-- should link to a view containing my game
+ -->
+
+
+
