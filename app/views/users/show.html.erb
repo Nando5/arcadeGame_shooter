@@ -2,10 +2,14 @@
 
 <% if @current_user %>
   <!-- SOMEONE IS ACTUALLY LOGGED IN -->
-  <h1>LOGGED IN</h1>
-  <%= @current_user.email %>
-  <%= link_to("Log out #{ @current_user.user_name }", login_path, :method => :delete) %>
+  <h1>GAME TITLE</h1>
+<!--   <%= @current_user.email %> -->
+  <%= ("#{ @current_user.user_name } is logged in") %> <br>
+  <%= link_to("Log out", login_path, :method => :delete) %>
 <% end %>
+
+<p>Your Current High Score is:</p>
+<p>_____________</p>
 
 <p>
   <strong>Email:</strong>
@@ -29,5 +33,3 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
-
-<%= link_to "PLAY GAME", users_path, class: 'button' %> <!-- need to link to game somehow -->

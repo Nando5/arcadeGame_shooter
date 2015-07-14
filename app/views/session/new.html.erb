@@ -1,7 +1,6 @@
-<h1>Session#new</h1>
-<p>Find me in app/views/session/new.html.erb</p>
+<p>Session#new / login page</p>
 
-<h1>Login</h1>
+<h1>GAME TITLE</h1>
 
 <%= form_tag '/login' do |f| %>
   <p>
@@ -15,5 +14,7 @@
   </p>
 
 <%= submit_tag "Login" %>
+
+<%= link_to "Sign Up To Play", new_user_path %> <!-- need to link to sign up page -->
 
 <% end %>
