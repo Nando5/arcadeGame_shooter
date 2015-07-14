@@ -1,6 +1,6 @@
 
 BasicGame.Game = function (game) {
-
+  
 };
 
 BasicGame.Game.prototype = {
@@ -22,6 +22,7 @@ BasicGame.Game.prototype = {
   //   this.load.audio('playerFire', ['assets/player-fire.ogg', 'assets/player-fire.wav']);
   //   this.load.audio('powerUp', ['assets/powerup.ogg', 'assets/powerup.wav']);
   // },
+
 
   create: function () {
     this.setupBackground();
