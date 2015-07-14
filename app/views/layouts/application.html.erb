@@ -8,6 +8,11 @@
 </head>
 <body>
 
+<div class="col-md-10 col-md-pull-2">
+      <% if flash[:notice].present? %>
+        <h2><%= flash[:notice] %></h2>
+      <% end %>
+
 <%= yield %>
 
 </body>

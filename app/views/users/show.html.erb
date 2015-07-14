@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<% if @current_user %>
+  <!-- SOMEONE IS ACTUALLY LOGGED IN -->
+  <h1>LOGGED IN</h1>
+  <%= @current_user.email %>
+  <%= link_to("Log out #{ @current_user.user_name }", login_path, :method => :delete) %>
+<% end %>
+
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
@@ -22,3 +29,5 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+<%= link_to "PLAY GAME", users_path, class: 'button' %> <!-- need to link to game somehow -->

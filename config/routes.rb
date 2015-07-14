@@ -2,6 +2,9 @@
 #
 #     Prefix Verb   URI Pattern                Controller#Action
 #       root GET    /                          users#index
+#      login GET    /login(.:format)           session#new
+#            POST   /login(.:format)           session#create
+#            DELETE /login(.:format)           session#destroy
 #     scores GET    /scores(.:format)          scores#index
 #            POST   /scores(.:format)          scores#create
 #  new_score GET    /scores/new(.:format)      scores#new
@@ -22,7 +25,12 @@
 
 Rails.application.routes.draw do
 
-  root :to => 'users#index'
+  root :to => 'session#new'
+
+  get '/login' => 'session#new'
+  post '/login' => 'session#create'
+
+  delete '/login' => 'session#destroy'
 
   resources :scores
   resources :users
