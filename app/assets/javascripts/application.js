@@ -12,4 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require "phaser-arcade-physics.min.js"
+//= require "boot.js"
+//= require "preloader.js"
+//= require "mainMenu.js"
+//= require "game.js"
+//= require "app.js"
 //= require_tree .
