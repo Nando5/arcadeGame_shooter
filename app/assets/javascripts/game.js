@@ -327,7 +327,7 @@ BasicGame.Game.prototype = {
 
   setupText: function() {
     this.instructions = this.add.text( (this.game.width/2), (this.game.height-100),
-    'Use Arrow Keys to Move, Press Z to Fire\n' + 'Tapping/clicking does both',
+    'Use Arrow Keys to Move, Press SPACEBAR to Fire\n' + 'Tapping/clicking does both',
     { font: '20px monospace', fill: '#fff', align: 'center' } );
 
     this.instructions.anchor.setTo(0.5, 0.5); 
@@ -530,7 +530,7 @@ BasicGame.Game.prototype = {
     if (this.showReturn && this.time.now > this.showReturn) {
       this.returnText = this.add.text(
       this.game.width / 2, this.game.height / 2 + 20, 
-      'Press Z or Tap Game to go back to Main Menu', { font: '16px sans-serif', fill: '#fff'} );
+      'Press SPACEBAR or Tap Game to go back to Main Menu', { font: '16px sans-serif', fill: '#fff'} );
       this.returnText.anchor.setTo(0.5, 0.5);
       this.showReturn = false;
     }
@@ -647,7 +647,7 @@ BasicGame.Game.prototype = {
         this.physics.arcade.moveToPointer(this.player, this.player.speed);
     }
 
-    if (this.input.keyboard.isDown(Phaser.Keyboard.Z) || this.input.activePointer.isDown) {
+    if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) || this.input.activePointer.isDown) {
       if ( this.returnText && this.returnText.exists ) {
         this.quitGame();
       } else {
