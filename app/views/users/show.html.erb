@@ -9,13 +9,12 @@
 <% end %>
 
 
+<p>Your last score was: <%= @current_user.scores.last.points %></p>
+
 <p>Your Current High Score is:</p>
 
 <p><%= @top_score.first.points if @top_score.first %></p> <!-- grabs users last highest score -->
 
-
-<p>You are ranked:</p>
-<p>_______</p> <!-- need to grab users rank in comparison to other users -->
 
 <h2>Top Scores</h2> <!-- grabs top scores from other users -->
 <% @high_scores.each_with_index do |score, i| %>

@@ -5,23 +5,6 @@ BasicGame.Game = function (game) {
 
 BasicGame.Game.prototype = {
 
-  // preload: function () {
-  //   this.load.image('sea', 'assets/starfield.png');
-  //   this.load.image('bullet', 'assets/starBullet.png');
-  //   this.load.image('enemyBullet', 'assets/starEnemyBullet.png');
-  //   this.load.image('powerup1', 'assets/starPowerup.png');
-  //   this.load.spritesheet('greenEnemy', 'assets/starEnemyBIG.png', 48, 48);
-  //   this.load.spritesheet('whiteEnemy', 'assets/starShootingEnemyBIG.png', 48, 48);
-  //   this.load.spritesheet('boss', 'assets/starBoss.png', 128, 128);
-  //   this.load.spritesheet('explosion', 'assets/starExplosion.png', 64, 64);
-  //   this.load.spritesheet('player', 'assets/starFighterBIG.png', 96, 96);
-  //   //load in the audio just the same
-  //   this.load.audio('explosion', ['assets/explosion.ogg', 'assets/explosion.wav']);
-  //   this.load.audio('playerExplosion', ['assets/player-explosion.ogg', 'assets/player-explosion.wav']);
-  //   this.load.audio('enemyFire', ['assets/enemy-fire.ogg', 'assets/enemy-fire.wav']);
-  //   this.load.audio('playerFire', ['assets/player-fire.ogg', 'assets/player-fire.wav']);
-  //   this.load.audio('powerUp', ['assets/powerup.ogg', 'assets/powerup.wav']);
-  // },
 
   create: function () {
     this.setupBackground();
@@ -124,14 +107,8 @@ BasicGame.Game.prototype = {
   addToScore: function (score) {
      this.score += score;
      this.scoreText.text = this.score;
-     // if (this.score >= 20000) {
-     //  this.enemyPool.destroy();
-     //  this.shooterPool.destroy();
-     //  this.enemyBulletPool.destroy();
-     //  this.displayEnd(true);
-     // }
 
-     //this prevents the boss from respawning again upon winning
+     // prevents the boss from respawning again upon winning
      if (this.score >= 2000 && this.bossPool.countDead() == 1) {
       this.spawnBoss();
       this.setupBossLifeBar();
@@ -601,12 +578,31 @@ BasicGame.Game.prototype = {
     if (this.endText && this.endText.exists) {
       return;
     }
-    var msg = win ? 'You Win!!!' : 'Game Over!';
+    var msg = win ? 'You Win!!!' : 'Game Over!' ;
     this.endText = this.add.text( this.game.width/2, this.game.height/2 - 60, msg, { font: '72px serif', fill: '#fff'} );
     this.endText.anchor.setTo(0.5, 0);
 
+    var finalScore = 'Score: ' + this.score;
+    this.endText = this.add.text( this.game.width/2, this.game.height/2 + 40, finalScore, { font: '72px serif', fill: '#fff'} );
+    this.endText.anchor.setTo(0.5, 0);
+
     this.showReturn = this.time.now + BasicGame.RETURN_MESSAGE_DELAY;
+
+      //Ajax request to take this.score and send it to the database for this user_id
+    $.post("/scores",
+    {
+        score: {
+          user_id: window.user_id,
+          points: this.score
+        }
+    },
+    function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);
+    });
   },
+
+
+
 
   playerPowerUp: function (player, powerUp) {
      this.addToScore(powerUp.reward);
