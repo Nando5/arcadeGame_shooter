@@ -1,34 +1,42 @@
-<p id="notice"><%= notice %></p>
+<div class="wrapper">
 
-<% if @current_user %>
-  <!-- SOMEONE IS ACTUALLY LOGGED IN -->
-  <h1>GAME TITLE</h1>
-<!--   <%= @current_user.email %> -->
-  <%= ("#{ @current_user.user_name } is logged in") %> <br>
-  <%= link_to("Log out", login_path, :method => :delete) %>
-<% end %>
+<!-- 	<p id="notice"><%= notice %></p> -->
 
+	<div class="shooter_title"></div>
 
-<p>Your last score was: <%= @current_user.scores.last.points %></p>
+	<% if @current_user %>
+	  <!-- SOMEONE IS ACTUALLY LOGGED IN -->
 
-<p>Your Current High Score is:</p>
-
-<p><%= @top_score.first.points if @top_score.first %></p> <!-- grabs users last highest score -->
+	<!--   <%= @current_user.email %> -->
+	  <p><%= (" Hi #{ @current_user.user_name } ") %></p>
+	  
+	<% end %>
 
 
-<h2>Top Scores</h2> <!-- grabs top scores from other users -->
-<% @high_scores.each_with_index do |score, i| %>
-  <p><%= i + 1 %>. <%= score.points %></p>
-<% end %>
-  <!-- <p>0</p> -->
+	<p>Your last score was: <%= @current_user.scores.last.points %></p>
+
+	<p>Your Current High Score is:</p>
+
+	<p><%= @top_score.first.points if @top_score.first %></p> <!-- grabs users last highest score -->
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %> |
-<%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+	<h2>Top Scores</h2> <!-- grabs top scores from other users -->
+	<% @high_scores.each_with_index do |score, i| %>
+	  <p><%= i + 1 %>. <%= score.points %></p>
+	<% end %>
 
-<br><br>
-<%= link_to 'PLAY GAME', game_path %>
+	<p>
+	<%= link_to 'Edit', edit_user_path(@user) %> |
+	<%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+	</p>
+
+	<p class="link_button"><%= link_to 'PLAY GAME', game_path %></p>
+	
+	<% if @current_user %>
+	<p><%= link_to("Log out", login_path, :method => :delete) %></p>
+	<% end %>
+
+</div>
 
 
 

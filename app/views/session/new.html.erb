@@ -1,20 +1,24 @@
-<p>Session#new / login page</p>
+<div class="wrapper">
 
-<h1>GAME TITLE</h1>
 
-<%= form_tag '/login' do |f| %>
-  <p>
-   <%= label_tag :email %>
-   <%= text_field_tag :email %>
-  </p>
+	<div class="shooter_title"></div>
+	<div class="shooter_pic"></div>
 
-  <p>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </p>
+	<%= form_tag '/login' do |f| %>
+	  <p>
+<!-- 	   <%= label_tag  %> -->
+	   <%= text_field_tag :email, placeholder = "email" %>
+	  </p>
 
-<%= submit_tag "Login" %>
+	  <p>
+<!-- 	    <%= label_tag  %> -->
+	    <%= password_field_tag :password %>
+	  </p>
 
-<%= link_to "Sign Up To Play", new_user_path %> <!-- need to link to sign up page -->
+	<p><%= submit_tag "Login" %></p>
 
-<% end %>
+	<p><%= link_to "Sign Up To Play", new_user_path %></p> <!-- need to link to sign up page -->
+
+	<% end %>
+
+</div>
