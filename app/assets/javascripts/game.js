@@ -1,6 +1,6 @@
 
 BasicGame.Game = function (game) {
-  
+
 };
 
 BasicGame.Game.prototype = {
@@ -22,7 +22,6 @@ BasicGame.Game.prototype = {
   //   this.load.audio('playerFire', ['assets/player-fire.ogg', 'assets/player-fire.wav']);
   //   this.load.audio('powerUp', ['assets/powerup.ogg', 'assets/powerup.wav']);
   // },
-
 
   create: function () {
     this.setupBackground();
@@ -48,7 +47,7 @@ BasicGame.Game.prototype = {
 
 
 
-  
+
 
    setupAudio: function () {
     this.sound.volume = 0.3;
@@ -116,6 +115,7 @@ BasicGame.Game.prototype = {
         this.shooterPool.destroy();
         this.bossPool.destroy();
         this.enemyBulletPool.destroy();
+        this.bossLifeBar.play('health_00')
         this.displayEnd(true);
       }
     }
@@ -134,6 +134,7 @@ BasicGame.Game.prototype = {
      //this prevents the boss from respawning again upon winning
      if (this.score >= 2000 && this.bossPool.countDead() == 1) {
       this.spawnBoss();
+      this.setupBossLifeBar();
      }
    },
 
@@ -179,6 +180,53 @@ BasicGame.Game.prototype = {
         if (this.bossApproaching === false && this.boss.alive && 
         this.boss.nextShotAt < this.time.now &&
         this.enemyBulletPool.countDead() >= 10) {
+
+        var bossLifeIncrement = BasicGame.BOSS_HEALTH / 20;
+        this.bossLifeBar.play('health_100');
+
+          if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 1 )) ) {
+            this.bossLifeBar.play('health_100');
+          } else if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 2 )) ) {
+            this.bossLifeBar.play('health_95');
+          } else if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 3 )) ) {
+            this.bossLifeBar.play('health_90');
+          } else if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 4 )) ) {
+            this.bossLifeBar.play('health_85');
+          } else if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 5 )) ) {
+            this.bossLifeBar.play('health_80');
+          } else if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 6 )) ) {
+            this.bossLifeBar.play('health_75');
+          } else if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 7 )) ) {
+            this.bossLifeBar.play('health_70');
+          } else if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 8 )) ) {
+            this.bossLifeBar.play('health_65');
+          } else if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 9 )) ) {
+            this.bossLifeBar.play('health_60');
+          } else if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 10 )) ) {
+            this.bossLifeBar.play('health_55');
+          } else if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 11 )) ) {
+            this.bossLifeBar.play('health_50');
+          } else if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 12 )) ) {
+            this.bossLifeBar.play('health_45');
+          } else if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 13 )) ) {
+            this.bossLifeBar.play('health_40');
+          } else if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 14 )) ) {
+            this.bossLifeBar.play('health_35');
+          } else if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 15 )) ) {
+            this.bossLifeBar.play('health_30');
+          } else if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 16 )) ) {
+            this.bossLifeBar.play('health_25');
+          } else if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 17 )) ) {
+            this.bossLifeBar.play('health_20');
+          } else if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 18 )) ) {
+            this.bossLifeBar.play('health_15');
+          } else if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 19 )) ) {
+            this.bossLifeBar.play('health_10');
+          } else if (this.boss.health > ( BasicGame.BOSS_HEALTH - ( bossLifeIncrement * 20 )) ) {
+            this.bossLifeBar.play('health_05');
+          } else {
+            this.bossLifeBar.play('health_00');
+          }
 
       this.boss.nextShotAt = this.time.now + BasicGame.BOSS_SHOT_DELAY;
       this.enemyFireSFX.play();
@@ -249,6 +297,32 @@ BasicGame.Game.prototype = {
   setupBackground: function() {
     this.sea = this.add.tileSprite(0, 0, this.game.width, this.game.height, 'sea');
     this.sea.autoScroll(0, BasicGame.SEA_SCROLL_SPEED * 10);
+  },
+
+  setupBossLifeBar: function() {
+    this.bossLifeBar = this.add.sprite((this.game.width/2) ,10, 'bossLifeBar');
+    this.bossLifeBar.anchor.setTo(0.5, 0.5);
+    this.bossLifeBar.animations.add('health_100', [0], 0, false);
+    this.bossLifeBar.animations.add('health_95', [1], 0, false);
+    this.bossLifeBar.animations.add('health_90', [2], 0, false);
+    this.bossLifeBar.animations.add('health_85', [3], 0, false);
+    this.bossLifeBar.animations.add('health_80', [4], 0, false);
+    this.bossLifeBar.animations.add('health_75', [5], 0, false);
+    this.bossLifeBar.animations.add('health_70', [6], 0, false);
+    this.bossLifeBar.animations.add('health_65', [7], 0, false);
+    this.bossLifeBar.animations.add('health_60', [8], 0, false);
+    this.bossLifeBar.animations.add('health_55', [9], 0, false);
+    this.bossLifeBar.animations.add('health_50', [10], 0, false);
+    this.bossLifeBar.animations.add('health_45', [11], 0, false);
+    this.bossLifeBar.animations.add('health_40', [12], 0, false);
+    this.bossLifeBar.animations.add('health_35', [13], 0, false);
+    this.bossLifeBar.animations.add('health_30', [14], 0, false);
+    this.bossLifeBar.animations.add('health_25', [15], 0, false);
+    this.bossLifeBar.animations.add('health_20', [16], 0, false);
+    this.bossLifeBar.animations.add('health_15', [17], 0, false);
+    this.bossLifeBar.animations.add('health_10', [18], 0, false);
+    this.bossLifeBar.animations.add('health_05', [19], 0, false);
+    this.bossLifeBar.animations.add('health_00', [20], 0, false);
   },
 
   setupText: function() {
@@ -551,6 +625,7 @@ BasicGame.Game.prototype = {
     this.boss.play('fly');
    },
 
+
   processPlayerInput: function() {
     this.player.body.velocity.x = 0;
     this.player.body.velocity.y = 0;
@@ -597,6 +672,7 @@ BasicGame.Game.prototype = {
     this.scoreText.destroy();
     this.endText.destroy();
     this.returnText.destroy();
+    this.bossLifeBar.destroy();
     //  Then go back to the main menu.
     this.state.start('MainMenu');
 

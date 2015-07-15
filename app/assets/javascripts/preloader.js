@@ -14,7 +14,7 @@ BasicGame.Preloader.prototype = {
   preload: function () {
 
     //  Show the loading progress bar asset loaded in boot.js
-    this.stage.backgroundColor = '#107E82';
+    this.stage.backgroundColor = '#2d2d2d';
 
     this.preloadBar = this.add.sprite(this.game.width / 2 - 100, this.game.height / 2, 'preloaderBar');
     this.add.text(this.game.width / 2, this.game.height / 2 - 30, "Loading...", { font: "32px monospace", fill: "#fff" }).anchor.setTo(0.5, 0.5);
@@ -37,6 +37,7 @@ BasicGame.Preloader.prototype = {
     this.load.spritesheet('boss', 'assets/starBoss.png', 128, 128);
     this.load.spritesheet('explosion', 'assets/starExplosion.png', 64, 64);
     this.load.spritesheet('player', 'assets/starFighterBIG.png', 96, 96);
+    this.load.spritesheet('bossLifeBar', 'assets/bossLifeBar.png', 400, 5);
     //load in the audio just the same
     this.load.audio('explosion', ['assets/explosion.ogg', 'assets/explosion.wav']);
     this.load.audio('playerExplosion', ['assets/player-explosion.ogg', 'assets/player-explosion.wav']);
