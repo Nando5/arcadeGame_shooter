@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def show
     @top_score = User.find( params[:id] ).scores.limit(1).order( "points DESC" )
     @high_scores = Score.limit(3).order( "points DESC" )
+    # @top_names = User.find( params[:id] ).
   end
 
   # GET /users/new

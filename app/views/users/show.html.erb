@@ -8,21 +8,23 @@
 	  <!-- SOMEONE IS ACTUALLY LOGGED IN -->
 
 	<!--   <%= @current_user.email %> -->
-	  <p><%= (" Hi #{ @current_user.user_name } ") %></p>
+	  <h2><%= (" Hi #{ @current_user.user_name } ") %></h2>
 	  
 	<% end %>
 
 
 	<p>Your last score was: <%= @current_user.scores.last.points %></p>
 
-	<p>Your Current High Score is:</p>
+	<p>Your Current High Score:</p>
 
-	<p><%= @top_score.first.points if @top_score.first %></p> <!-- grabs users last highest score -->
+	<h2 class="highscore"><%= @top_score.first.points if @top_score.first %></h2> <!-- grabs users last highest score -->
 
 
-	<h2>Top Scores</h2> <!-- grabs top scores from other users -->
+	<p>Top Scores</p> <!-- grabs top scores from other users -->
 	<% @high_scores.each_with_index do |score, i| %>
-	  <p><%= i + 1 %>. <%= score.points %></p>
+	  <p><%= i + 1 %>. 
+	  <%= score.user_id %>
+	  <%= score.points %></p>
 	<% end %>
 
 	<p>

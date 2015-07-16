@@ -14,7 +14,7 @@ BasicGame.Preloader.prototype = {
   preload: function () {
 
     //  Show the loading progress bar asset loaded in boot.js
-    this.stage.backgroundColor = '#2d2d2d';
+    this.stage.backgroundColor = '#000000';
 
     this.preloadBar = this.add.sprite(this.game.width / 2 - 100, this.game.height / 2, 'preloaderBar');
     this.add.text(this.game.width / 2, this.game.height / 2 - 30, "Loading...", { font: "32px monospace", fill: "#fff" }).anchor.setTo(0.5, 0.5);
