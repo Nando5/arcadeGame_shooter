@@ -595,9 +595,6 @@ BasicGame.Game.prototype = {
           user_id: window.user_id,
           points: this.score
         }
-    },
-    function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);
     });
   },
 

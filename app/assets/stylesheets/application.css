@@ -62,18 +62,25 @@ input[type=submit] {
 	margin-bottom: 20px;
 }
 
+input[type=submit]:hover {
+    background-color: #FCEE21;
+}
+
 .link_button {
-    width: 100px;
+    width: 130px;
 	height: 30px;
 	border-radius: 10px;
 	margin: 0 auto;
 	margin-top: 10px;
 	border: none;
 	text-align: center;
-	color: #1A1A1A;
 	font-size: medium;
-	background-color: #8DFFFC;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #8DFFFC;
+	background-color: #222E35;
 	margin-bottom: 20px;
+	line-height: 1.8em;
 }
 
 .wrapper {
