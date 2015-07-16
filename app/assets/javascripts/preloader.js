@@ -17,7 +17,7 @@ BasicGame.Preloader.prototype = {
     this.stage.backgroundColor = '#000000';
 
     this.preloadBar = this.add.sprite(this.game.width / 2 - 100, this.game.height / 2, 'preloaderBar');
-    this.add.text(this.game.width / 2, this.game.height / 2 - 30, "Loading...", { font: "32px monospace", fill: "#fff" }).anchor.setTo(0.5, 0.5);
+    this.add.text(this.game.width / 2, this.game.height / 2 - 30, "Loading...", { font: "32px helvetica", fill: "#fff" }).anchor.setTo(0.5, 0.5);
 
     //  This sets the preloadBar sprite as a loader sprite.
     //  What that does is automatically crop the sprite from 0 to full-width
@@ -54,21 +54,7 @@ BasicGame.Preloader.prototype = {
   },
 
   update: function () {
-
-    //  Basically it will wait for the audio file to be decoded before proceeding to the MainMenu.
-    //  You can jump right into the menu if you want and still play the music, but you'll have a few
-    //  seconds of delay while the mp3 decodes - so if you need your music to be in-sync with your menu
-    //  it's best to wait for it to decode here first, then carry on.
-    
-    //  If no music in the game then put the game.state.start line into the create function and delete
-    //  the update function completely.
-    
-    //if (this.cache.isSoundDecoded('titleMusic') && this.ready == false)
-    //{
-    //  this.ready = true;
       this.state.start('MainMenu');
-    //}
-
   }
 
 };
