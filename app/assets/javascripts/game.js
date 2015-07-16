@@ -303,15 +303,15 @@ BasicGame.Game.prototype = {
   },
 
   setupText: function() {
-    this.instructions = this.add.text( (this.game.width/2), (this.game.height-100),
-    'Use Arrow Keys to Move, Press SPACEBAR to Fire\n' + 'Tapping/clicking does both',
-    { font: '20px monospace', fill: '#fff', align: 'center' } );
+    this.instructions = this.add.text( (this.game.width/2), (this.game.height-300),
+    'Use Arrow Keys to Move, Press SPACEBAR to Fire\n\n' + 'Tapping and clicking does both',
+    { font: '20px helvetica', fill: '#fff', align: 'center' } );
 
     this.instructions.anchor.setTo(0.5, 0.5); 
     this.instExpire = this.time.now + BasicGame.INSTRUCTION_EXPIRE;
 
     this.score = 0;
-    this.scoreText = this.add.text(this.game.width/2, 30, '' + this.score, {font: '20px monospace', fill: '#fff', align: 'center'});
+    this.scoreText = this.add.text(this.game.width/2, 30, '' + this.score, {font: '20px helvetica', fill: '#fff', align: 'center'});
     this.scoreText.anchor.setTo(0.5, 0.5);
   },
 
@@ -506,8 +506,8 @@ BasicGame.Game.prototype = {
 
     if (this.showReturn && this.time.now > this.showReturn) {
       this.returnText = this.add.text(
-      this.game.width / 2, this.game.height / 2 + 20, 
-      'Press SPACEBAR or Tap Game to go back to Main Menu', { font: '16px sans-serif', fill: '#fff'} );
+      this.game.width / 2, this.game.height / 2 + 150, 
+      'Press SPACEBAR or Tap Game to go back to Main Menu', { font: '16px helvetica', fill: '#fff'} );
       this.returnText.anchor.setTo(0.5, 0.5);
       this.showReturn = false;
     }
@@ -579,11 +579,11 @@ BasicGame.Game.prototype = {
       return;
     }
     var msg = win ? 'You Win!!!' : 'Game Over!' ;
-    this.endText = this.add.text( this.game.width/2, this.game.height/2 - 60, msg, { font: '72px serif', fill: '#fff'} );
+    this.endText = this.add.text( this.game.width/2, this.game.height/2 - 60, msg, { font: '72px helvetica', fill: '#fff'} );
     this.endText.anchor.setTo(0.5, 0);
 
     var finalScore = 'Score: ' + this.score;
-    this.endText = this.add.text( this.game.width/2, this.game.height/2 + 40, finalScore, { font: '72px serif', fill: '#fff'} );
+    this.endText = this.add.text( this.game.width/2, this.game.height/2 + 40, finalScore, { font: '72px helvetica', fill: '#fff'} );
     this.endText.anchor.setTo(0.5, 0);
 
     this.showReturn = this.time.now + BasicGame.RETURN_MESSAGE_DELAY;
@@ -665,7 +665,7 @@ BasicGame.Game.prototype = {
     this.scoreText.destroy();
     this.endText.destroy();
     this.returnText.destroy();
-    this.bossLifeBar.destroy();
+    // this.bossLifeBar.destroy();
     //  Then go back to the main menu.
     this.state.start('MainMenu');
 

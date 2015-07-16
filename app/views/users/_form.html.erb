@@ -13,21 +13,21 @@
 
   <div class="field">
 
-    <p><%= f.text_field :email %></p>
+    <p><%= f.text_field :email, :placeholder => 'email' %></p>
   </div>
   <div class="field">
 
-    <p><%= f.text_field :user_name %></p>
+    <p><%= f.text_field :user_name, :placeholder => 'username'  %></p>
   </div>
   <div class="field">
 
-    <p><%= f.password_field :password %></p>
+    <p><%= f.password_field :password, :placeholder => 'password'  %></p>
   </div>
     <div class="field">
 
-    <p><%= f.password_field :password_confirmation %></p>
+    <p><%= f.password_field :password_confirmation, :placeholder => 'confirm password'  %></p>
   </div>
   <div class="actions">
-    <p><%= f.submit "Update"%></p>
+    <p><%= f.submit %></p>
   </div>
 <% end %>

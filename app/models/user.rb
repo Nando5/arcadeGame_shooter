@@ -15,5 +15,5 @@ class User < ActiveRecord::Base
 	has_many :scores
 
 	has_secure_password
-  	validates :email, :presence => true, :uniqueness => true 
+  	validates :email, :presence => true, :uniqueness => true
 end
