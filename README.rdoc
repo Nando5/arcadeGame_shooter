@@ -1,28 +1,36 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Project 3 - Individual
+ARCADE-SHOOTER game built using Phaser.js and Rails. This is my first time using Phaser, it looked fun and so thought to dive in. My graphic design background meant i could easily build all the assets.
 
-Things you may want to cover:
+DURATION: 1 week
 
-* Ruby version
+DESCRIPTION:
+For my final GA project i decided to build something fun and cool for myself and my mates. I decided to build an old style shoot-em up game. I wanted it to be simple yet fun and have the chance to design and style the look of the game the way i wanted. The game would be a sci-fi shoot-em up and follow the same type of game play of classics like Galaga and more closely 1942. The app was also simple. Two models: Users and scores.
 
-* System dependencies
+A user can create an account, login and play the game and their scores would be recorded. They can compare their scores to the top three in the database to give themselves a goal to achieve.
 
-* Configuration
+BUILDING THE CRUD:
+Used Rails to setup my CRUD system. Pretty basic stuff, then added a login and authentication. The user scores are being sent to the database via an AJAX request. I mocked up a design theme in Illustrator and Photoshop, when i was happy with it, i set out replicating it with CSS for the app.
 
-* Database creation
+BUILDING THE GAME:
+The game was built using Phaser which is a javascript framework designed to make building games easy.
+There are four game states: Boot, Preloader, mainMenu and Game.
 
-* Database initialization
+-The 'Boot' state initialises some game settings, loads the preload asset and kicks off the 'preloader'.
+-The 'Preloader' state is where the assets are beings loaded. While this is happening, the user will see the preload bar which was loaded in the 'Boot' state. When complete this kicks off the 'mainMenu' state.
+-The 'mainMenu' brings up the instructions for the user and sets up input functions for starting the game. In this case the SPACEBAR will call the 'Game' state.
+-The 'Game' state is where the actual game logic lies. Its here where the Create functions exist which setup the game stage environment and the Update functions are recursively envoked checking and updating the gameplay ie. collisions, user input etc.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Phaser makes it easy to setup the game environment, setup sprites and load in animations. I created all my own sprites and implemented them into the game. This was easier for me as i am already very experienced with the adobe suite, however i still had to learn how sprite sheets work and how to use them to good effect. After some trial and error i got them working in the code and even had time to add sound.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+STILL TO DO:
+-The game is only a demo right now. Only three enemies. I want to add more enemies before meeting the Boss.
+-Tougher challenges taking out ships.
+-Ability to pick up cooler and more powerful power ups to take down big guys.
+-Soundtrack would be nice.
+-Get it running smoothly acoss most browsers.
+-Multiplayer/co-op would be awesome!
+
+I had a lot of fun building this app. Still alot to learn but happy i got to design and build something cool. I like phaser, definitely will continue to play with it.
