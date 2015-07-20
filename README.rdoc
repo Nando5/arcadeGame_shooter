@@ -29,7 +29,7 @@ STILL TO DO:
 -Tougher challenges taking out ships.
 -Ability to pick up cooler and more powerful power ups to take down big guys.
 -Soundtrack would be nice.
--Get it running smoothly acoss most browsers.
+-Get it running smoothly across all or most browsers.
 -Multiplayer/co-op would be awesome!
 
 I had a lot of fun building this app. Still alot to learn but happy i got to design and build something cool. I like phaser, definitely will continue to play with it.
