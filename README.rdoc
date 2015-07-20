@@ -1,7 +1,6 @@
-== README
+== Project 3: SCI-FI ARCADE SHOOTER
 
-Project 3 - Individual
-ARCADE-SHOOTER game built using Phaser.js and Rails. This is my first time using Phaser, it looked fun and so thought to dive in. My graphic design background meant i could easily build all the assets.
+ARCADE-SHOOTER game built using Phaser.js and Rails. This is my first time using Phaser, it looked fun and so thought to dive in. My graphic design background meant i could easily build all the assets. This was an individual project.
 
 DURATION: 1 week
 
